@@ -1,0 +1,21 @@
+excel:
+  file: web_cases.xlsx
+
+logger:
+  name: "python29"
+  file: "python29log.txt"
+  logger_level: "DEBUG"
+  stream_level: "DEBUG"
+  file_level: "INFO"
+
+user:
+  mobile_phone: "17386049001"
+  pwd: "123456"
+
+
+selenium:
+  wait_time: 10
+
+host:
+  pf: "http://pftest.senguo.me/"
+  passport: "http://passporttest.senguo.me/"

@@ -1,0 +1,4 @@
+2020-12-11 10:21:40,476--jks_login.py--hanghao:25--WARNING:可能未成功进入页面【: http://jenkins.senguo.me/login?from=%2F】，可能会引发异常!
+2020-12-11 10:22:39,658--daily_static_page.py--hanghao:24--WARNING:可能未成功进入页面【每日统计更新: http://jenkins.senguo.me/view/%E7%BB%9F%E8%AE%A1%E4%BB%BB%E5%8A%A1/job/UTIL-PF%EF%BC%9A%E6%AF%8F%E6%97%A5%E7%BB%9F%E8%AE%A1%E6%9B%B4%E6%96%B0/build?delay=0sec】，可能会引发异常!
+2020-12-11 10:23:06,931--conftest.py--hanghao:31--INFO:退出浏览器img...
+2020-12-11 10:23:07,039--conftest.py--hanghao:33--INFO:浏览器退出成功. 

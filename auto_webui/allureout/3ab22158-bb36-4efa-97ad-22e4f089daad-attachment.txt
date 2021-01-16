@@ -1,0 +1,3 @@
+2020-12-11 10:12:45,494--jks_login.py--hanghao:25--WARNING:可能未成功进入页面【: http://jenkins.senguo.me/login?from=%2F】，可能会引发异常!
+2020-12-11 10:12:48,754--conftest.py--hanghao:31--INFO:退出浏览器img...
+2020-12-11 10:12:48,856--conftest.py--hanghao:33--INFO:浏览器退出成功. 

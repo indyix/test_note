@@ -1,0 +1,3 @@
+WARNING  python29:jks_index.py:26 可能未成功进入页面【DYW_TEST [Jenkins]: http://jenkins.senguo.me/】，可能会引发异常!
+INFO     python29:conftest.py:31 退出浏览器img...
+INFO     python29:conftest.py:33 浏览器退出成功.
