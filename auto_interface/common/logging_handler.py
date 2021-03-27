@@ -4,7 +4,7 @@ import os
 from config import config
 
 
-class Logger():
+class Logger(object):
     # 输出管理器
     stream_handler = logging.StreamHandler()
 

@@ -65,7 +65,7 @@ def delete():
         print("未知错误，可能删除没成功")
         raise e
     print("后台/数据中心 缓存删除成功")
-    RedisCache().delete_tj(425)
+    # RedisCache().delete_tj(425)
 
 if __name__ == '__main__':
     delete()

@@ -114,14 +114,14 @@ class Handler(object):
             self.logger.error("登录账号时出现意料之外的情况, user:{}".format(data["phone"]))
             raise Exception(format(web_aft_login.json()))
         if web_aft_login.status_code == 200 and web_aft_login.json()["success"] is True:
-            self.logger.info("登录成功, 账号：{}".format(data["phone"]))
+            self.logger.info(f"登录成功, 账号：{data['phone']}")
             return session
         if web_aft_login.json()["success"] is False:
-            self.logger.warning("登录失败, 账号：{}".format(data["phone"]))
+            # self.logger.warning(f"登录失败, 账号：{data['phone']}")
             raise Exception(format(web_aft_login.json()))
         else:
             self.logger.error("登录账号时出现意料之外的情况")
-            raise Exception("unknown error: {}".format(web_aft_login.json()))
+            raise Exception(f"unknown error: {web_aft_login.json()}")
 
     def login_backend(self, user_to_login=None):
         """登录后台测试账号"""

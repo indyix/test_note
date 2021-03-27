@@ -40,7 +40,7 @@ class DailyStatistic(BasePage):
         x=120
         while x > 0:
             sleep(1)
-            dots=x%3+1
+            dots=3-x%3
             x -= 1
-            print("\r更新店铺id:{},天数{}，剩余时间{}".format(str(shop),str(days),str(x)+"s",dots*'.'), end="")
+            print("\r更新店铺id:{},天数{}，剩余时间{}{}".format(str(shop),str(days),str(x)+"s",dots*'.'), end="")
         return self
