@@ -15,7 +15,7 @@
 
   3. 创建计划任务
 
-  <img src="./一、计划py方法一.png" alt="计划py方法一" style="zoom:25%;" />
+  <img src="./IMGformdBnote/一、计划py方法一.png" alt="计划py方法一" style="zoom:25%;" />
 
 - 方法2：使用bash终端+Windows计划任务
 
@@ -35,8 +35,8 @@
 
   1. 创建计划任务：直接启用cygwin触发执行py脚本
 
-  <img src="./一、计划py方法二.png" alt="计划py方法二" style="zoom:25%;" />
+  <img src="./IMGformdBnote/一、计划py方法二.png" alt="计划py方法二" style="zoom:25%;" />
 
 - 使用pyqutogui可以简单的操作windows
 
-  <img src="./一、计划py调用原理图.png" alt="计划py调用原理图" style="zoom:100%;" />
+  <img src="./IMGformdBnote/一、计划py调用原理图.png" alt="计划py调用原理图" style="zoom:100%;" />
