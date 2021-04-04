@@ -1,6 +1,7 @@
 import time
 
 from appium import webdriver
+from appium import 
 
 desired_caps = dict()
 desired_caps["platformName"]="ios"
@@ -15,6 +16,7 @@ driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
 
 time.sleep(10)
 driver.find_element_by_xpath('//XCUIElementTypeStaticText[@name="其他方式登录"]').click()
+
 
 # 点击 协议单选框
 # driver.tap([(57,819)],200)
