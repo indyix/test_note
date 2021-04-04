@@ -1,7 +1,6 @@
 import time
 
 from appium import webdriver
-from appium import 
 
 desired_caps = dict()
 desired_caps["platformName"]="ios"
@@ -11,6 +10,7 @@ desired_caps["app"] ="cc.senguo.SenguoPFBossApp"
 desired_caps["udid"] = "a4485fabb6c524aca88551388f334579ce8a760f"
 desired_caps["xcodeOrgid"]= "D7TAX4VQ82"
 desired_caps["xcodeSigningId"]= "iPhone Developer"
+
 # 启动app
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
 
