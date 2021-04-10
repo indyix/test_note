@@ -375,3 +375,148 @@ driver.executeScript("mobile:queryAppState",bundleIdParams);	//		查看应用状
 ```
 
 <img src="./ios_uiauto_IMGformd/App-Api-.png" alt="修改host" style="zoom:50%;" />
+
+
+
+##### Gesture
+
+- scroll   ： 滚动滚动条
+- swipe  ：滑动屏幕
+
+<img src="./ios_uiauto_IMGformd/Gestures_scroll_swipe.png" alt="修改host" style="zoom:50%;" />
+
+```java
+		/**
+		 命令		mobile: swipe
+		执行简单的滑动手势，在相册分页、切换视图等场景使用，不接受坐标，复杂的滑动手势使用mobile: dragfromtoduration 
+		direction：up，down，left，right 		必需参数
+		element 		要滑动的元素，非必需参数
+		 */
+		//示例
+JavascriptExecutor js = (JavascriptExecutor) driver;
+Map<String, Object> params = new HashMap<>();
+params.put("direction", "down");		//点击屏幕下拖（页面上滑
+params.put("element", ((RemoteWebElement) element).getId());
+js.executeScript("mobile: swipe", params);
+
+				/**
+		 * mobile: scroll
+			滑动元素或整个屏幕。支持不同的滑动策略。该方法提供了4种滑动策略：“name”，“direction”，“predicateString”或“toVisible”。4种滑动策略都是排他性的，一次滑动只能选择一个策略。可使用mobile:scroll来对表格中或者集合视图中的某个已知控件进行精确的滚动操作
+			element  需要滚动的控件ID，缺省将使用App的控件
+			name  需要执行滚动的子控件的accessibility id。 将predicateString参数设置为“name == accessibilityId”可以实现相同的结果。如果element不是容器，则不起作用
+			direction   'up', 'down', 'left' or 'right'. 该参数与swipe中的比，差别在于scroll会尝试将当前界面完全移动到下一页
+			predicateString   需要被执行滚动操作的子控件的NSPredicate定位器。如果控件不是容器，则不起作用
+			toVisible   布尔类型的参数。如果设置为true，则表示要求滚动到父控件中的第一个可见到的子控件。如果element未设置，则不生效
+			
+			示例
+			# Python 
+			driver.execute_script('mobile: scroll', {'direction': 'down'});
+*/
+Map<String,Object> params = new HashMap<String, Object>();
+params.put("element", ((RemoteWebElement) element).getId());
+params.put("direction", "down");    // 对比swipe，其将当前页完全移动到下一页（滚动条下滚）
+params.put("name", "accessibilityId");
+params.put("predicateString", "name == accessibilityId");
+params.put("toVisible", true);    //需要设置element才能用，滚动到
+driver.executeScript("mobile: scroll", params);
+		 
+```
+
+- 缩放：pinch scale  	0-1缩小，>1放大。scale 0-1时velocity必须0
+
+- tap、doubleTap、touchAndHold  	  x、y在没有指定element时强制  
+
+<img src="./ios_uiauto_IMGformd/Gestures_pinch_tap.png" alt="修改host" style="zoom:50%;" />
+
+```java
+desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, MobileBrowserType.SAFARI);	
+/**
+		 * 命令
+		mobile: pinch		在给定的控件或应用程序控件上执行捏合手势
+		element		需要捏合的控件ID（作为十六进制哈希字符串）。如果没有提供该参数的话，则会使用App的控件作为替代
+		scale 		浮点型，使用0和1之间的比例来“捏紧”或缩小，大于1的比例“撑开”或放大
+		velocity 	每秒缩放速度（浮点值） 强制参数
+		示例
+		# Ruby 
+		execute_script 'mobile: pinch', scale: 0.5, velocity: 1.1, element: element.ref
+		 */
+Map<String,Object> params = new HashMap<String, Object>();
+params.put("scale", 0.5);
+params.put("velocity", -2.0);//velocity must be less than zero when scale is less than 1
+driver.executeScript("mobile: pinch", params);
+
+//tap
+IOSElement btn = driver.findElementByAccessibilityId("id_cell_btn");
+Map<String, Object> params = new HashMap<String, Object>();
+//params.put("element", btn.getId());
+params.put("x", 10.0);
+params.put("y", 10.0);
+driver.executeScript("mobile: doubleTap", params);
+
+//touchAndHold
+Map<String,Object> params = new HashMap<String, Object>();
+params.put("duration", 2.0);
+params.put("x", 184.0);
+params.put("y", 164.0);
+driver.executeScript("mobile: touchAndHold", params);
+```
+
+- 拖动
+
+<img src="./ios_uiauto_IMGformd/Gestures_drogfromtofordration.png" alt="修改host" style="zoom:100%;" />
+
+- PickerView
+
+<img src="./ios_uiauto_IMGformd/Gestures_selectPickerView.png" alt="修改host" style="zoom:100%;" />
+
+```java
+/*通过坐标点执行拖放手势。可以在控件上执行，也可以在屏幕上执行
+element 		控件ID（作为十六进制哈希字符串）。 设置element则x、y是以element为边界的xy轴。未设置则x,y是以手机屏幕为边界
+duration 		浮点数范围[0.5,60]。表示开始拖动点之前的点击手势需要多长时间才能开始拖动。		必需参数
+fromX		起始拖动点的x坐标（类型float）。必需参数
+fromY		起始拖动点的y坐标（类型float）。必需参数
+toX		结束拖曳点的x坐标（类型float）。必需参数	
+toY		结束拖动点的y坐标（类型float）。必需参数
+*/
+Map<String, Object> params= new HashMap<String, Object>();
+params.put("duration", 0.5);
+params.put("fromX", 155.0);
+params.put("fromY", 400.0);
+params.put("toX", 155.0);
+params.put("toY", 300.0);
+driver.executeScript("mobile: dragFromToForDuration", params);
+
+//selectPickerWheelValue
+/*选择下/上一个picker wheel的值。 如果这些值是动态的那么这个方法是能起作用的。XCTest有一个BUG就是你并不能知道要选择哪一个或者当前的选择区域是否生效
+element:  PickerWheel的内部元素id（作为十六进制哈希字符串）执行值选择。元素必须是XCUIElementTypePickerWheel类型。必需
+order:  next 选择下一个value，previous选择前面一个value。必需
+offset:	区间值： [0.01, 0.5]。定义PickerWheel中心距离应该有多远。通过将该值乘以实际的picker wheel高度来确定实际拖动距离。太小的偏移值可能不会改变picker wheel的值，而过高的值可能会导致picker wheel同时切换两个或多个值。通常最优值位于范围[0.15,0.3]中。默认为0.2
+*/
+IOSElement pickerWheel = driver.findElement(By.xpath("//xxxxx...")); 
+Map<String, Object> params= new HashMap<String, Object>();
+params.put("element", pickerWheel.getId());
+params.put("order", "next");
+params.put("offset", 0.1);
+for (int i = 0; i < 10; i++) {
+	Thread.sleep(1000);
+	driver.executeScript("mobile: selectPickerWheelValue", params);
+}
+		
+```
+
+
+
+- Gestures_alert
+
+<img src="./ios_uiauto_IMGformd/Gestures_alert.png" alt="修改host" style="zoom:100%;" />
+
+```java
+Map<String, Object> params= new HashMap<String, Object>();
+params.put("action", "accept");
+params.put("action", "dismiss");
+params.put("action", "getButtons");
+Object object = driver.executeScript("mobile: alert", params);
+System.out.println(object);
+//也可以直接定位后点击
+```
+
