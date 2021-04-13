@@ -1005,9 +1005,12 @@ url(r&apos;^getTest3/$&apos;, views.getTest3),
 <li>&#x5B8C;&#x5584;&#x89C6;&#x56FE;getTest2&#x7684;&#x4EE3;&#x7801;</li>
 </ul>
 <pre><code>def getTest2(request):
+    # 根据键接收值
     a=request.GET[&apos;a&apos;]
     b=request.GET[&apos;b&apos;]
+    # 构造上下文
     context={&apos;a&apos;:a,&apos;b&apos;:b}
+    # 传入上下文到模板进行渲染，响应内容
     return render(request,&apos;booktest/getTest2.html&apos;,context)
 </code></pre><ul>
 <li>&#x521B;&#x5EFA;getTest2.html&#xFF0C;&#x663E;&#x793A;&#x63A5;&#x6536;&#x7ED3;&#x679C;</li>

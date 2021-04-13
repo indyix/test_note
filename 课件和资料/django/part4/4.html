@@ -983,8 +983,9 @@ def index(request):
 <h4 id="&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x8F6C;&#x4E49;&#x7684;&#x5B57;&#x7B26;">&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x8F6C;&#x4E49;&#x7684;&#x5B57;&#x7B26;</h4>
 <ul>
 <li>html&#x8F6C;&#x4E49;&#xFF0C;&#x5C31;&#x662F;&#x5C06;&#x5305;&#x542B;&#x7684;html&#x6807;&#x7B7E;&#x8F93;&#x51FA;&#xFF0C;&#x800C;&#x4E0D;&#x88AB;&#x89E3;&#x91CA;&#x6267;&#x884C;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x5F53;&#x663E;&#x793A;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x653B;&#x51FB;&#x6027;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5982;js&#x811A;&#x672C;</li>
-<li>Django&#x4F1A;&#x5C06;&#x5982;&#x4E0B;&#x5B57;&#x7B26;&#x81EA;&#x52A8;&#x8F6C;&#x4E49;&#xFF1A;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">note：Django&#x4F1A;&#x5C06;&#x5982;&#x4E0B;&#x5B57;&#x7B26;&#x81EA;&#x52A8;&#x8F6C;&#x4E49;&#xFF1A;</li>
 </ul>
+                        转义：将js解释器可以解释的标签转义为其解释成字符串的字符
 <pre><code>&lt; &#x4F1A;&#x8F6C;&#x6362;&#x4E3A;&amp;lt;
 
 &gt; &#x4F1A;&#x8F6C;&#x6362;&#x4E3A;&amp;gt;
@@ -998,7 +999,7 @@ def index(request):
 <li>&#x5F53;&#x663E;&#x793A;&#x4E0D;&#x88AB;&#x4FE1;&#x4EFB;&#x7684;&#x53D8;&#x91CF;&#x65F6;&#x4F7F;&#x7528;escape&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x4E00;&#x822C;&#x7701;&#x7565;&#xFF0C;&#x56E0;&#x4E3A;Django&#x81EA;&#x52A8;&#x8F6C;&#x4E49;</li>
 </ul>
 <pre><code>{{t1|escape}}
-</code></pre><h4 id="&#x5173;&#x95ED;&#x8F6C;&#x4E49;">&#x5173;&#x95ED;&#x8F6C;&#x4E49;</h4>
+</code></pre><h4 id="&#x5173;&#x95ED;&#x8F6C;&#x4E49;">&#x5173;&#x95ED;&#x8F6C;&#x4E49;(如富文本编辑器，其编辑的输出结果是解释后的内容)</h4>
 <ul>
 <li>&#x5BF9;&#x4E8E;&#x53D8;&#x91CF;&#x4F7F;&#x7528;safe&#x8FC7;&#x6EE4;&#x5668;</li>
 </ul>
@@ -1016,12 +1017,13 @@ def index(request):
 <h4 id="&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x9762;&#x503C;">&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x9762;&#x503C;</h4>
 <ul>
 <li>&#x624B;&#x52A8;&#x8F6C;&#x4E49;</li>
+    <li style="color: red;background-color: gold; border-color: #8c8c8c;">note：在模板的{{}}标签中，从视图context拿到模板的键的内容直接用是转义的，但是模板里的内容如:&quot;&lt;b>123&lt;/b&gt;&quot; 是不转义的。所以需要手动转义</li>
+    <li style="color: red;background-color: gold; border-color: #8c8c8c;">note：(Django的VIEWS函数render时对从context取用的键进行了转义，但非键的字符串是没有转义的，需要手动转)</li>
 </ul>
 <pre><code>{ { data|default:&quot;&lt;b&gt;123&lt;/b&gt;&quot; }}
-</code></pre><ul>
-<li>&#x5E94;&#x5199;&#x4E3A;</li>
-</ul>
-<pre><code>{ { data|default:&quot;&amp;lt;b&amp;gt;123&amp;lt;/b&amp;gt;&quot; }}
+    default:xx 如果data存在则输出data(会被render转义)，不存在则输出后面的内容(不会被render转义，需要手动转义)
+    不转义，手动转义写为
+<code>{ { data|default:&quot;&amp;lt;b&amp;gt;123&amp;lt;/b&amp;gt;&quot; }}
 </code></pre>
                     
                     </section>

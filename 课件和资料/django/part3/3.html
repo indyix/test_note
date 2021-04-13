@@ -967,14 +967,14 @@
                         <h1 id="&#x5B9A;&#x4E49;&#x89C6;&#x56FE;">&#x5B9A;&#x4E49;&#x89C6;&#x56FE;</h1>
 <ul>
 <li>&#x672C;&#x8D28;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</li>
-<li>&#x89C6;&#x56FE;&#x7684;&#x53C2;&#x6570;<ul>
-<li>&#x4E00;&#x4E2A;HttpRequest&#x5B9E;&#x4F8B;</li>
-<li>&#x901A;&#x8FC7;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7EC4;&#x83B7;&#x53D6;&#x7684;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</li>
-<li>&#x901A;&#x8FC7;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7EC4;&#x83B7;&#x5F97;&#x7684;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x89C6;&#x56FE;&#x7684;&#x53C2;&#x6570;<ul>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x4E00;&#x4E2A;HttpRequest&#x5B9E;&#x4F8B;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x901A;&#x8FC7;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7EC4;&#x83B7;&#x53D6;&#x7684;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x901A;&#x8FC7;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7EC4;&#x83B7;&#x5F97;&#x7684;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;</li>
 </ul>
 </li>
 <li>&#x5728;&#x5E94;&#x7528;&#x76EE;&#x5F55;&#x4E0B;&#x9ED8;&#x8BA4;&#x6709;views.py&#x6587;&#x4EF6;&#xFF0C;&#x4E00;&#x822C;&#x89C6;&#x56FE;&#x90FD;&#x5B9A;&#x4E49;&#x5728;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;</li>
-<li>&#x5982;&#x679C;&#x5904;&#x7406;&#x529F;&#x80FD;&#x8FC7;&#x591A;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5230;&#x4E0D;&#x540C;&#x7684;py&#x6587;&#x4EF6;&#x4E2D;</li>
+<li >&#x5982;&#x679C;&#x5904;&#x7406;&#x529F;&#x80FD;&#x8FC7;&#x591A;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5230;&#x4E0D;&#x540C;&#x7684;py&#x6587;&#x4EF6;&#x4E2D;</li>
 </ul>
 <pre><code>&#x65B0;&#x5EFA;views1.py
 #coding:utf-8
@@ -988,14 +988,18 @@ url(r&apos;^$&apos;, views1.index, name=&apos;index&apos;),
 </code></pre><h1 id="&#x9519;&#x8BEF;&#x89C6;&#x56FE;">&#x9519;&#x8BEF;&#x89C6;&#x56FE;</h1>
 <ul>
 <li>Django&#x539F;&#x751F;&#x81EA;&#x5E26;&#x51E0;&#x4E2A;&#x9ED8;&#x8BA4;&#x89C6;&#x56FE;&#x7528;&#x4E8E;&#x5904;&#x7406;HTTP&#x9519;&#x8BEF;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">
+    note：使用：settings.DEBUG设置成False，setting.ALLOWED_HOSTS设置可访问的ip，"*"为所有
+    <br>会替换原有的404报错页面
+    <br>defaults.page_not_found(request, template_name='404.html')
 </ul>
 <h4 id="404-page-not-found-&#x89C6;&#x56FE;">404 (page not found) &#x89C6;&#x56FE;</h4>
 <ul>
 <li>defaults.page_not_found(request, template_name=&apos;404.html&apos;)</li>
 <li>&#x9ED8;&#x8BA4;&#x7684;404&#x89C6;&#x56FE;&#x5C06;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x7ED9;&#x6A21;&#x677F;&#xFF1A;request_path&#xFF0C;&#x5B83;&#x662F;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#x7684;URL</li>
-<li>&#x5982;&#x679C;Django&#x5728;&#x68C0;&#x6D4B;URLconf&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x540E;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x5339;&#x914D;&#x7684;&#x5185;&#x5BB9;&#x4E5F;&#x5C06;&#x8C03;&#x7528;404&#x89C6;&#x56FE;</li>
-<li>&#x5982;&#x679C;&#x5728;settings&#x4E2D;DEBUG&#x8BBE;&#x7F6E;&#x4E3A;True&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;404&#x89C6;&#x56FE;&#xFF0C;&#x800C;&#x662F;&#x663E;&#x793A;URLconf &#x5E76;&#x5E26;&#x6709;&#x4E00;&#x4E9B;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;</li>
-<li>&#x5728;templates&#x4E2D;&#x521B;&#x5EFA;404.html</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x5982;&#x679C;Django&#x5728;&#x68C0;&#x6D4B;URLconf&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x540E;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x5339;&#x914D;&#x7684;&#x5185;&#x5BB9;&#x4E5F;&#x5C06;&#x8C03;&#x7528;404&#x89C6;&#x56FE;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x5982;&#x679C;&#x5728;settings&#x4E2D;DEBUG&#x8BBE;&#x7F6E;&#x4E3A;True&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;404&#x89C6;&#x56FE;&#xFF0C;&#x800C;&#x662F;&#x663E;&#x793A;URLconf &#x5E76;&#x5E26;&#x6709;&#x4E00;&#x4E9B;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x5728;templates&#x4E2D;&#x521B;&#x5EFA;404.html</li>
 </ul>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;

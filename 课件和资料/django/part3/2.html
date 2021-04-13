@@ -967,11 +967,11 @@
                         <h1 id="urlconf">URLconf</h1>
 <ul>
 <li>&#x5728;settings.py&#x6587;&#x4EF6;&#x4E2D;&#x901A;&#x8FC7;ROOT_URLCONF&#x6307;&#x5B9A;&#x6839;&#x7EA7;url&#x7684;&#x914D;&#x7F6E;</li>
-<li>urlpatterns&#x662F;&#x4E00;&#x4E2A;url()&#x5B9E;&#x4F8B;&#x7684;&#x5217;&#x8868;</li>
-<li>&#x4E00;&#x4E2A;url()&#x5BF9;&#x8C61;&#x5305;&#x62EC;&#xFF1A;<ul>
-<li>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</li>
-<li>&#x89C6;&#x56FE;&#x51FD;&#x6570;</li>
-<li>&#x540D;&#x79F0;name</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">note：urlpatterns&#x662F;&#x4E00;&#x4E2A;url()&#x5B9E;&#x4F8B;&#x7684;&#x5217;&#x8868;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x4E00;&#x4E2A;url()&#x5BF9;&#x8C61;&#x5305;&#x62EC;&#xFF1A;<ul>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x89C6;&#x56FE;&#x51FD;&#x6570;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">&#x540D;&#x79F0;name</li>
 </ul>
 </li>
 <li>&#x7F16;&#x5199;URLconf&#x7684;&#x6CE8;&#x610F;&#xFF1A;<ul>
@@ -988,8 +988,9 @@
 </ul>
 <pre><code>url(r&apos;^([0-9]+)/$&apos;, views.detail, name=&apos;detail&apos;),
 </code></pre><ul>
-<li>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x547D;&#x540D;&#x7EC4;&#xFF0C;&#x901A;&#x8FC7;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x89C6;&#x56FE;&#xFF0C;&#x672C;&#x4F8B;&#x4E2D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x4E3A;id</li>
-</ul>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">note:&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x547D;&#x540D;&#x7EC4;&#xFF0C;&#x901A;&#x8FC7;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x89C6;&#x56FE;&#xFF0C;&#x672C;&#x4F8B;&#x4E2D;&#x5173;&#x952E;&#x5B57;&#x53C2;&#x6570;&#x4E3A;id</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;" >使用群组传参，视图函数必须入参所有群组，如果群组有命名，则必须按命名参数入参，否则报错</li>
+                    </ul>
 <pre><code>url(r&apos;^(?P&lt;id&gt;[0-9]+)/$&apos;, views.detail, name=&apos;detail&apos;),
 </code></pre><ul>
 <li>&#x53C2;&#x6570;&#x5339;&#x914D;&#x89C4;&#x5219;&#xFF1A;&#x4F18;&#x5148;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x547D;&#x540D;&#x53C2;&#x6570;&#x5219;&#x4F7F;&#x7528;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</li>
@@ -1017,8 +1018,18 @@ url(r&apos;^([0-9]+)/$&apos;, views.detail, name=&apos;detail&apos;),
 </code></pre><ul>
 <li>&#x4F7F;&#x7528;include&#x53EF;&#x4EE5;&#x53BB;&#x9664;urlconf&#x7684;&#x5197;&#x4F59;</li>
 <li>&#x53C2;&#x6570;&#xFF1A;&#x89C6;&#x56FE;&#x4F1A;&#x6536;&#x5230;&#x6765;&#x81EA;&#x7236;URLconf&#x3001;&#x5F53;&#x524D;URLconf&#x6355;&#x83B7;&#x7684;&#x6240;&#x6709;&#x53C2;&#x6570;</li>
-<li>&#x5728;include&#x4E2D;&#x901A;&#x8FC7;namespace&#x5B9A;&#x4E49;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x7528;&#x4E8E;&#x53CD;&#x89E3;&#x6790;</li>
-</ul>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">note: &#x5728;include&#x4E2D;&#x901A;&#x8FC7;namespace&#x5B9A;&#x4E49;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x7528;&#x4E8E;&#x53CD;&#x89E3;&#x6790;</li>
+<li style="color: red;background-color: gold; border-color: #8c8c8c;">
+反解析:
+<br>    主urls使用url(rag,include(应用.urls,namespace))定义命名空间
+<br>    应用中可以用url(rag,view,name)定义url的名字
+<br>    作用:
+<br>        1.在视图中重定向要用
+<br>        2.在模板中做链接标签
+
+
+</li>
+                    </ul>
 <h4 id="url&#x7684;&#x53CD;&#x5411;&#x89E3;&#x6790;">URL&#x7684;&#x53CD;&#x5411;&#x89E3;&#x6790;</h4>
 <ul>
 <li>&#x5982;&#x679C;&#x5728;&#x89C6;&#x56FE;&#x3001;&#x6A21;&#x677F;&#x4E2D;&#x4F7F;&#x7528;&#x786C;&#x7F16;&#x7801;&#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x5728;urlconf&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#xFF0C;&#x7EF4;&#x62A4;&#x662F;&#x4E00;&#x4EF6;&#x975E;&#x5E38;&#x9EBB;&#x70E6;&#x7684;&#x4E8B;&#x60C5;</li>
