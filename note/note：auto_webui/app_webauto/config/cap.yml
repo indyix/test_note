@@ -1,5 +1,0 @@
-platformName: "Android",
-deviceName: "emulator-5554",
-appPackage: "com.lemon.lemonban",
-appActivity: ".activity.MainActivity",
-automationName: "UiAutomator2",

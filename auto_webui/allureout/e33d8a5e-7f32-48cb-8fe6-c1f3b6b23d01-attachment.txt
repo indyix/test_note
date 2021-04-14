@@ -1,7 +1,0 @@
-WARNING  python29:jks_login.py:26 可能未成功进入页面【: http://jenkins.senguo.me/login?from=%2F】，可能会引发异常!
-WARNING  python29:daily_static_page.py:24 可能未成功进入页面【每日统计更新: http://jenkins.senguo.me/view/%E7%BB%9F%E8%AE%A1%E4%BB%BB%E5%8A%A1/job/UTIL-PF%EF%BC%9A%E6%AF%8F%E6%97%A5%E7%BB%9F%E8%AE%A1%E6%9B%B4%E6%96%B0/build?delay=0sec】，可能会引发异常!
-INFO     python29:test_statistic.py:24 店铺id2652,days:13,剩余3
-INFO     python29:test_statistic.py:24 店铺id2652,days:12,剩余2
-INFO     python29:test_statistic.py:24 店铺id2652,days:11,剩余1
-INFO     python29:conftest.py:31 退出浏览器img...
-INFO     python29:conftest.py:33 浏览器退出成功.

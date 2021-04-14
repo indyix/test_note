@@ -1,6 +1,0 @@
-INFO     python29:test_statistic.py:28 店铺id2833,days:52,剩余30
-INFO     python29:test_statistic.py:30 店铺id:2833,天数52，更新成功
-INFO     python29:test_statistic.py:28 店铺id2833,days:51,剩余29
-ERROR    python29:selenium_handler.py:38 元素找不到('xpath', "//input[@value='DAYS']/following-sibling::input[@name='value']")
-INFO     python29:conftest.py:29 退出浏览器img...
-INFO     python29:conftest.py:31 浏览器退出成功.

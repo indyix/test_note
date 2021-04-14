@@ -1,4 +1,0 @@
-INFO     python29:test_statistic.py:28 店铺id3174,days:1,剩余1
-INFO     python29:test_statistic.py:30 店铺id:3174,天数1，更新成功
-INFO     python29:conftest.py:29 退出浏览器img...
-INFO     python29:conftest.py:31 浏览器退出成功.
