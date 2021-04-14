@@ -972,7 +972,10 @@
 <ul>
 <li>&#x5728;settings &#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x9759;&#x6001;&#x5185;&#x5BB9;</li>
 </ul>
-<pre><code>STATIC_URL = &apos;/static/&apos;
+<pre  style="color: red;background-color: gold; border-color: #8c8c8c;">note：<code>
+从浏览器访问静态资源需要用STATIC_URL：访问的逻辑路径
+STATIC_URL = &apos;/static/&apos;
+静态资源存放路径：物理存储路径
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, &apos;static&apos;),
 ]
@@ -986,6 +989,13 @@ STATICFILES_DIRS = [
 <pre><code>/static/my_app/myexample.jpg
 </code></pre><ul>
 <li>&#x5728;&#x6A21;&#x677F;&#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;static&#x7F16;&#x7801;</li>
+</ul>
+<ul style="color: red;background-color: gold; border-color: #8c8c8c;">note：
+    <li>浏览器遇到src会自动向服务器继续发起请求获取该地址对应的数据，然后在当前网页中展示其内容（表单里的话，可能需要点击提交才触发
+    setting::STATIC_URL配置成什么，Django就会解析成什么路径
+<li>使用src访问静态资源，并不会经url正则匹配使得进程走到视图代码里
+<li>————浏览器请求：host:port/static/静态文件→ 'static'是setting.py::STATIC_URL，所以不会匹配url正则，走不到视图函数，不经后端代码处理直接返回STATICFILES_DIRS内的静态资源
+<li>————浏览器请求：host/port/其他url→ 匹配到url→走到视图，经视图代码处理
 </ul>
 <pre><code>{ % load static from staticfiles %}
 &lt;img src=&quot;{ % static &quot;my_app/myexample.jpg&quot; %}&quot; alt=&quot;My image&quot;/&gt;
